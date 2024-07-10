@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,4 +17,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('home');
+
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// AUTH
+Route::group(["middleware" => "guest"], function () {
+    Route::get('/kelola', [AuthController::class, 'login'])->name('login');
+});
+
+// Dashboard
+Route::prefix('admin')->namespace('admin')->middleware(['auth'])->group(function () {
+    Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 });
