@@ -6,9 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Galleries extends Model
+class Product extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['title', 'image'];
+    protected $fillable = [
+        'title',
+        'slug',
+        'excerpt',
+        'image',
+        'description',
+        'is_publish'
+    ];
 }

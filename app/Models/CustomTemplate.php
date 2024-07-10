@@ -6,15 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Slides extends Model
+class CustomTemplate extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
-        'order',
-        'title',
-        'description',
-        'image',
-        'is_publish'
-    ];
+    protected $fillable = ['logo_header', 'topbar_color', 'sidebar_color', 'bg_color'];
 }

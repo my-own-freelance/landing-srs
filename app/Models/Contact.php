@@ -6,16 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Articles extends Model
+class Contact extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = [
-        'title',
-        'slug',
-        'excerpt',
-        'image',
-        'description',
-        'is_publish'
-    ];
+    protected $fillable = ['name', 'email', 'subject', 'message'];
 }

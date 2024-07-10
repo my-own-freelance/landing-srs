@@ -6,9 +6,15 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Abouts extends Model
+class Slide extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['order', 'title', 'description', 'image', 'is_publish'];
+    protected $fillable = [
+        'order',
+        'title',
+        'description',
+        'image',
+        'is_publish'
+    ];
 }
