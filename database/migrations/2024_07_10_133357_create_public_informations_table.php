@@ -11,14 +11,14 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
+        Schema::create('public_informations', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('username')->unique();
-            $table->string('password');
-            $table->enum('role', ['ADMIN', 'USER']);
-            $table->enum('is_active', ['Y', 'N']);
-            $table->rememberToken();
+            $table->string('title');
+            $table->longText('description');
+            $table->integer('happy_client');
+            $table->integer('complete_shipment');
+            $table->integer('customer_review');
+            $table->string('contact_us')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('public_informations');
     }
 };
