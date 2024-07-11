@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SlideController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -39,4 +40,5 @@ Route::prefix('admin')->namespace('admin')->middleware(['auth'])->group(function
     Route::get('slide', [SlideController::class, 'index'])->name('slide');
     Route::get('product', [ProductController::class, 'index'])->name('product');
     Route::get('gallery', [GalleryController::class, 'index'])->name('gallery');
+    Route::get('team', [TeamController::class, 'index'])->name('team');
 });

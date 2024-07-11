@@ -43,6 +43,12 @@
                         <p>Galeri</p>
                     </a>
                 </li>
+                <li class="nav-item ml-3 {{ $routename == 'team' ? 'active' : '' }}">
+                    <a href="{{ route('team') }}">
+                        <i class="fas fa-users"></i>
+                        <p>Team</p>
+                    </a>
+                </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>

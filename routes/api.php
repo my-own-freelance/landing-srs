@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CustomTemplateController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SlideController;
+use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -70,5 +71,14 @@ Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(func
         Route::post("update", [GalleryController::class, "update"]);
         Route::post("update-status", [GalleryController::class, "updateStatus"]);
         Route::delete("/", [GalleryController::class, "destroy"]);
+    });
+
+    // TEAM
+    Route::group(["prefix" => "team"], function () {
+        Route::get("datatable", [TeamController::class, "dataTable"]);
+        Route::get("{id}/detail", [TeamController::class, "getDetail"]);
+        Route::post("create", [TeamController::class, "create"]);
+        Route::post("update", [TeamController::class, "update"]);
+        Route::delete("/", [TeamController::class, "destroy"]);
     });
 });

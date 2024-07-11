@@ -10,31 +10,28 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-header-left">
-                        <h5 class="text-uppercase title">Slide</h5>
-                        <span>Daftar Image Slide</span>
+                        <h5 class="text-uppercase title">Team</h5>
 
                     </div>
                     <div class="card-header-right">
                         <button class="btn btn-mini btn-info mr-1" onclick="return refreshData();">Refresh</button>
-                        <button class="btn btn-mini btn-primary" onclick="return addData();">Tambah Slide</button>
+                        <button class="btn btn-mini btn-primary" onclick="return addData();">Tambah Team</button>
                     </div>
                 </div>
                 <div class="card-block">
                     <div class="table-responsive mt-3">
-                        <table class="table table-striped table-bordered nowrap dataTable" id="slideTable">
+                        <table class="table table-striped table-bordered nowrap dataTable" id="teamTable">
                             <thead>
                                 <tr>
                                     <th class="all">#</th>
-                                    <th class="all">Nama Slide</th>
-                                    <th class="all">Gambar</th>
-                                    <th class="all">Urutan</th>
-                                    <th class="all">Status</th>
-                                    <th class="all">Deskripsi</th>
+                                    <th class="all">Nama</th>
+                                    <th class="all">Posisi</th>
+                                    <th class="all">Foto</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="6" class="text-center"><small>Tidak Ada Data</small></td>
+                                    <td colspan="4" class="text-center"><small>Tidak Ada Data</small></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -46,7 +43,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-header-left">
-                        <h5>Tambah / Edit Slide</h5>
+                        <h5>Tambah / Edit Team</h5>
                     </div>
                     <div class="card-header-right">
                         <button class="btn btn-sm btn-warning" onclick="return closeForm(this)" id="btnCloseForm">
@@ -58,31 +55,19 @@
                     <form>
                         <input class="form-control" id="id" type="hidden" name="id" />
                         <div class="form-group">
-                            <label for="title">Judul</label>
-                            <input class="form-control" id="title" type="text" name="title" placeholder="judul"
+                            <label for="name">Nama</label>
+                            <input class="form-control" id="name" type="text" name="name" placeholder="nama team"
                                 required />
                         </div>
                         <div class="form-group">
-                            <label for="order">Urutan</label>
-                            <input class="form-control" min="1" id="order" type="number" name="order"
-                                placeholder="urutan" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="description">Deskripsi Slider</label>
-                            <input class="form-control" id="description" type="text" name="description"
-                                placeholder="deskripsi singkat tentang slider" />
+                            <label for="position">Posisi</label>
+                            <input class="form-control" id="position" type="text" name="position"
+                                placeholder="posisi / jabatan" />
                         </div>
                         <div class="form-group">
                             <label for="image">Gambar</label>
                             <input class="form-control" id="image" type="file" name="image"
                                 placeholder="upload gambar" required />
-                        </div>
-                        <div class="form-group">
-                            <label for="is_publish">Status</label>
-                            <select class="form-control" id="is_publish" name="is_publish" required>
-                                <option value="Y">Publish</option>
-                                <option value="N">Draft</option>
-                            </select>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-sm btn-primary" type="submit">
@@ -109,8 +94,8 @@
         });
 
         function dataTable() {
-            const url = "/api/admin/slide/datatable";
-            dTable = $('#slideTable').DataTable({
+            const url = "/api/admin/team/datatable";
+            dTable = $('#teamTable').DataTable({
                 searching: true,
                 ordering: true,
                 lengthChange: true,
@@ -124,15 +109,11 @@
                 columns: [{
                     data: 'action',
                 }, {
-                    data: 'title',
+                    data: 'name',
+                }, {
+                    data: 'position',
                 }, {
                     data: 'image',
-                }, {
-                    data: 'order',
-                }, {
-                    data: 'is_publish'
-                }, {
-                    data: 'description'
                 }],
                 pageLength: 10,
             });
@@ -145,7 +126,7 @@
         function addData() {
             $("#formEditable").attr('data-action', 'add').fadeIn(200);
             $("#boxTable").removeClass("col-md-12").addClass("col-md-8");
-            $("#title").focus();
+            $("#name").focus();
             $("#image").attr("required", true);
         }
 
@@ -159,7 +140,7 @@
 
         function getData(id) {
             $.ajax({
-                url: `/api/admin/slide/${id}/detail`,
+                url: `/api/admin/team/${id}/detail`,
                 method: "GET",
                 dataType: "json",
                 success: function(response) {
@@ -169,10 +150,8 @@
                         let d = response.data;
                         $("#image").removeAttr("required");
                         $("#id").val(d.id);
-                        $("#title").val(d.title);
-                        $("#order").val(d.order);
-                        $("#description").val(d.description);
-                        $("#is_publish").val(d.is_publish);
+                        $("#name").val(d.name);
+                        $("#position").val(d.position);
                     })
                 },
                 error: function(err) {
@@ -189,32 +168,17 @@
 
             let dataToSend = new FormData()
             dataToSend.append("id", parseInt($("#id").val()));
-            dataToSend.append("title", $("#title").val());
-            dataToSend.append("order", $("#order").val());
+            dataToSend.append("name", $("#name").val());
+            dataToSend.append("position", $("#position").val());
             dataToSend.append("image", image);
-            dataToSend.append("description", $("#description").val());
-            dataToSend.append("is_publish", $("#is_publish").val());
 
-            // dataToSend.forEach(function(value, key) {
-            //     console.log(key + ": " + value);
-            // });
             saveData(dataToSend, $("#formEditable").attr("data-action"));
             return false;
         });
 
-        function updateStatus(id, status) {
-            let c = confirm(`Anda yakin ingin mengubah status ke ${status} ?`)
-            if (c) {
-                let dataToSend = new FormData();
-                dataToSend.append("is_publish", status == "Draft" ? "N" : "Y");
-                dataToSend.append("id", id);
-                updateStatusData(dataToSend);
-            }
-        }
-
         function saveData(data, action) {
             $.ajax({
-                url: action == "update" ? "/api/admin/slide/update" : "/api/admin/slide/create",
+                url: action == "update" ? "/api/admin/team/update" : "/api/admin/team/create",
                 contentType: false,
                 processData: false,
                 method: "POST",
@@ -240,7 +204,7 @@
             let c = confirm("Anda yakin ingin menghapus data ini ?")
             if (c) {
                 $.ajax({
-                    url: '/api/admin/slide',
+                    url: '/api/admin/team',
                     data: {
                         id: id,
                     },
@@ -263,7 +227,7 @@
 
         function updateStatusData(data) {
             $.ajax({
-                url: "/api/admin/slide/update-status",
+                url: "/api/admin/team/update-status",
                 contentType: false,
                 processData: false,
                 method: "POST",
