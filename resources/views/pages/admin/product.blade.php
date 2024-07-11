@@ -9,22 +9,21 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-header-left">
-                        <h5 class="text-uppercase title">Artikel</h5>
+                        <h5 class="text-uppercase title">Produk</h5>
                     </div>
                     <div class="card-header-right">
                         <button class="btn btn-mini btn-info mr-1" onclick="return refreshData();">Refresh</button>
-                        <button class="btn btn-mini btn-primary" onclick="return addData();">Tambah Artikel</button>
+                        <button class="btn btn-mini btn-primary" onclick="return addData();">Tambah Produk</button>
                     </div>
                 </div>
                 <div class="card-block">
                     <div class="table-responsive mt-3">
-                        <table class="table table-striped table-bordered nowrap dataTable" id="articleTable">
+                        <table class="table table-striped table-bordered nowrap dataTable" id="productTable">
                             <thead>
                                 <tr>
                                     <th class="all">#</th>
                                     <th class="all">Judul</th>
                                     <th class="all">Status</th>
-                                    <th class="all">Views</th>
                                     <th class="all">Gambar</th>
                                 </tr>
                             </thead>
@@ -42,7 +41,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-header-left">
-                        <h5>Tambah / Edit Artikel</h5>
+                        <h5>Tambah / Edit Produk</h5>
                     </div>
                     <div class="card-header-right">
                         <button class="btn btn-sm btn-warning" onclick="return closeForm(this)" id="btnCloseForm">
@@ -61,7 +60,7 @@
                         <div class="form-group">
                             <label for="excerpt">Kutipan</label>
                             <input class="form-control" id="excerpt" type="text" name="excerpt"
-                                placeholder="masukkan kutipan singkat mengenai artikel" />
+                                placeholder="masukkan kutipan singkat mengenai produk" />
                         </div>
                         <div class="form-group">
                             <label for="is_publish">Status</label>
@@ -113,8 +112,8 @@
         })
 
         function dataTable() {
-            const url = "/api/admin/article/datatable";
-            dTable = $("#articleTable").DataTable({
+            const url = "/api/admin/product/datatable";
+            dTable = $("#productTable").DataTable({
                 searching: true,
                 orderng: true,
                 lengthChange: true,
@@ -131,8 +130,6 @@
                     data: "title"
                 }, {
                     data: "is_publish"
-                }, {
-                    data: "views"
                 }, {
                     data: "image"
                 }],
@@ -162,7 +159,7 @@
 
         function getData(id) {
             $.ajax({
-                url: `/api/admin/article/${id}/detail`,
+                url: `/api/admin/product/${id}/detail`,
                 method: "GET",
                 dataType: "json",
                 success: function(res) {
@@ -210,7 +207,7 @@
 
         function saveData(data, action) {
             $.ajax({
-                url: action == "update" ? "/api/admin/article/update" : "/api/admin/article/create",
+                url: action == "update" ? "/api/admin/product/update" : "/api/admin/product/create",
                 contentType: false,
                 processData: false,
                 method: "POST",
@@ -235,7 +232,7 @@
             let c = confirm("Apakah anda yakin untuk menghapus data ini ?");
             if (c) {
                 $.ajax({
-                    url: "/api/admin/article",
+                    url: "/api/admin/product",
                     method: "DELETE",
                     data: {
                         id: id
@@ -258,7 +255,7 @@
 
         function updateStatusData(data) {
             $.ajax({
-                url: "/api/admin/article/update-status",
+                url: "/api/admin/product/update-status",
                 contentType: false,
                 processData: false,
                 method: "POST",

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CustomTemplateController;
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
@@ -48,5 +49,15 @@ Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(func
         Route::post("update", [SlideController::class, "update"]);
         Route::post("update-status", [SlideController::class, "updateStatus"]);
         Route::delete("/", [SlideController::class, "destroy"]);
+    });
+
+    // ARTICLE
+    Route::group(["prefix" => "product"], function () {
+        Route::get("datatable", [ProductController::class, "dataTable"]);
+        Route::get("{id}/detail", [ProductController::class, "getDetail"]);
+        Route::post("create", [ProductController::class, "create"]);
+        Route::post("update", [ProductController::class, "update"]);
+        Route::post("update-status", [ProductController::class, "updateStatus"]);
+        Route::delete("/", [ProductController::class, "destroy"]);
     });
 });
