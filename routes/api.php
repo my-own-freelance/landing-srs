@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CustomTemplateController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
@@ -27,4 +28,14 @@ Route::group(["middleware" => "guest"], function () {
 
 Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(function () {
     Route::post("/custom_template/create_update", [CustomTemplateController::class, "saveUpdateData"]);
+
+    // ARTICLE
+    Route::group(["prefix" => "article"], function () {
+        Route::get("datatable", [ArticleController::class, "dataTable"]);
+        Route::get("{id}/detail", [ArticleController::class, "getDetail"]);
+        Route::post("create", [ArticleController::class, "create"]);
+        Route::post("update", [ArticleController::class, "update"]);
+        Route::post("update-status", [ArticleController::class, "updateStatus"]);
+        Route::delete("/", [ArticleController::class, "destroy"]);
+    });
 });

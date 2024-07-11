@@ -16,6 +16,7 @@ class Article extends Model
         'excerpt',
         'image',
         'description',
-        'is_publish'
+        'is_publish',
+        'views'
     ];
 }

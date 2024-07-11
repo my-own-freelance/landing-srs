@@ -4,7 +4,6 @@
     $topbarColor = $color && $color->topbar_color ? $color->topbar_color : 'blue2';
     $sidebarColor = $color && $color->sidebar_color ? $color->sidebar_color : 'white';
     $bgColor = $color && $color->bd_color ? $color->bd_color : 'bg1';
-
 @endphp
 <!DOCTYPE html>
 <html lang="en">

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
@@ -29,4 +30,7 @@ Route::group(["middleware" => "guest"], function () {
 // Dashboard
 Route::prefix('admin')->namespace('admin')->middleware(['auth'])->group(function () {
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
+
+    // MASTER
+    Route::get('article', [ArticleController::class, 'index'])->name("article");
 });

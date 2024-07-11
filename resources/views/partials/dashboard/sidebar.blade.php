@@ -2,7 +2,6 @@
 @php
     $routename = request()->route()->getName();
     $role = json_decode(Cookie::get('user'))->role;
-
 @endphp
 <div class="sidebar sidebar-style-2" data-background-color="{{ $sidebarColor }}">
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
@@ -19,6 +18,12 @@
                         <i class="fa fa-ellipsis-h"></i>
                     </span>
                     <h4 class="text-section">Master</h4>
+                </li>
+                <li class="nav-item ml-3 {{ $routename == 'article' ? 'active' : '' }}">
+                    <a href="{{ route('article') }}">
+                        <i class="fas fa-newspaper"></i>
+                        <p>Artikel</p>
+                    </a>
                 </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">

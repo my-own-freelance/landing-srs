@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('image');
             $table->longText('description');
             $table->enum('is_publish', ['Y', 'N']);
+            $table->bigInteger('views')->default(0);
             $table->timestamps();
             $table->softDeletes();
         });
