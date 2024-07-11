@@ -25,6 +25,12 @@
                         <p>Artikel</p>
                     </a>
                 </li>
+                <li class="nav-item ml-3 {{ $routename == 'slide' ? 'active' : '' }}">
+                    <a href="{{ route('slide') }}">
+                        <i class="fas fa-images"></i>
+                        <p>Slide</p>
+                    </a>
+                </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>

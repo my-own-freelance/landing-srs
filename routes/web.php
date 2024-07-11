@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,4 +34,5 @@ Route::prefix('admin')->namespace('admin')->middleware(['auth'])->group(function
 
     // MASTER
     Route::get('article', [ArticleController::class, 'index'])->name("article");
+    Route::get('slide', [SlideController::class, 'index'])->name('slide');
 });
