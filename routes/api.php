@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CustomTemplateController;
+use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\AuthController;
@@ -59,5 +60,15 @@ Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(func
         Route::post("update", [ProductController::class, "update"]);
         Route::post("update-status", [ProductController::class, "updateStatus"]);
         Route::delete("/", [ProductController::class, "destroy"]);
+    });
+
+    // GALLERY
+    Route::group(["prefix" => "gallery"], function () {
+        Route::get("datatable", [GalleryController::class, "dataTable"]);
+        Route::get("{id}/detail", [GalleryController::class, "getDetail"]);
+        Route::post("create", [GalleryController::class, "create"]);
+        Route::post("update", [GalleryController::class, "update"]);
+        Route::post("update-status", [GalleryController::class, "updateStatus"]);
+        Route::delete("/", [GalleryController::class, "destroy"]);
     });
 });

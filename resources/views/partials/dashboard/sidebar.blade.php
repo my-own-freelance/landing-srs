@@ -25,16 +25,22 @@
                         <p>Artikel</p>
                     </a>
                 </li>
+                <li class="nav-item ml-3 {{ $routename == 'product' ? 'active' : '' }}">
+                    <a href="{{ route('product') }}">
+                        <i class="fas fa-cubes"></i>
+                        <p>Produk</p>
+                    </a>
+                </li>
                 <li class="nav-item ml-3 {{ $routename == 'slide' ? 'active' : '' }}">
                     <a href="{{ route('slide') }}">
                         <i class="fas fa-images"></i>
                         <p>Slide</p>
                     </a>
                 </li>
-                <li class="nav-item ml-3 {{ $routename == 'product' ? 'active' : '' }}">
-                    <a href="{{ route('product') }}">
-                        <i class="fas fa-cubes"></i>
-                        <p>Produk</p>
+                <li class="nav-item ml-3 {{ $routename == 'gallery' ? 'active' : '' }}">
+                    <a href="{{ route('gallery') }}">
+                        <i class="fas fa-camera"></i>
+                        <p>Galeri</p>
                     </a>
                 </li>
                 <li class="nav-section">

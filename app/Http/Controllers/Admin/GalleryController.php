@@ -3,17 +3,17 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Slide;
+use App\Models\Gallery;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
-class SlideController extends Controller
+class GalleryController extends Controller
 {
     public function index()
     {
-        $title = "Slide";
-        return view("pages.admin.slide", compact("title"));
+        $title = "Galeri";
+        return view("pages.admin.gallery", compact("title"));
     }
 
     // HANDLER API
@@ -22,13 +22,13 @@ class SlideController extends Controller
         try {
             $data = $request->all();
             $rules = [
-                "order" => "required|integer",
+                "title" => "required|string",
                 "is_publish" => "required|string|in:Y,N",
                 "image" => "required|image|max:1024|mimes:giv,svg,jpeg,png,jpg"
             ];
 
             $messages = [
-                "order.required" => "Urutan harus diisi",
+                "title.required" => "Judul harus diisi",
                 "is_publish.required" => "Status harus diisi",
                 "is_publish.in" => "Status tidak sesuai",
                 "image.required" => "Gambar harus diisi",
@@ -44,8 +44,8 @@ class SlideController extends Controller
                     "message" => $validator->errors()->first(),
                 ], 400);
             }
-            $data['image'] = $request->file('image')->store('assets/slide', 'public');
-            Slide::create($data);
+            $data['image'] = $request->file('image')->store('assets/gallery', 'public');
+            Gallery::create($data);
 
             return response()->json([
                 "status" => "success",
@@ -53,7 +53,7 @@ class SlideController extends Controller
             ]);
         } catch (\Exception $err) {
             if ($request->file('image')) {
-                unlink(public_path('storage/assets/slide/' . $request->image->hashName()));
+                unlink(public_path('storage/assets/gallery/' . $request->image->hashName()));
             }
             return response()->json([
                 "status" => "error",
@@ -65,7 +65,7 @@ class SlideController extends Controller
     public function getDetail($id)
     {
         try {
-            $slide = Slide::find($id);
+            $slide = Gallery::find($id);
 
             if (!$slide) {
                 return response()->json([
@@ -92,7 +92,7 @@ class SlideController extends Controller
             $data = $request->all();
             $rules = [
                 "id" => "required|integer",
-                "order" => "required|integer",
+                "title" => "required|string",
                 "is_publish" => "required|string|in:Y,N",
                 "image" => "nullable",
             ];
@@ -104,7 +104,7 @@ class SlideController extends Controller
             $messages = [
                 "id.required" => "Data ID harus diisi",
                 "id.integer" => "Type ID tidak sesuai",
-                "order.required" => "Urutan harus diisi",
+                "title.required" => "Judul harus diisi",
                 "is_publish.required" => "Status harus diisi",
                 "is_publish.in" => "Status tidak sesuai",
                 "image.image" => "Gambar yang di upload tidak valid",
@@ -119,33 +119,33 @@ class SlideController extends Controller
                     "message" => $validator->errors()->first(),
                 ], 400);
             }
-            $slide = Slide::find($data['id']);
+            $gallery = Gallery::find($data['id']);
 
-            if (!$slide) {
+            if (!$gallery) {
                 return response()->json([
                     "status" => "error",
-                    "message" => "Data slide tidak ditemukan"
+                    "message" => "Data gallery tidak ditemukan"
                 ], 404);
             }
 
             // delete undefined data image
             unset($data["image"]);
             if ($request->file('image')) {
-                $oldImagePath = "public/" . $slide->image;
+                $oldImagePath = "public/" . $gallery->image;
                 if (Storage::exists($oldImagePath)) {
                     Storage::delete($oldImagePath);
                 }
-                $data['image'] = $request->file('image')->store('assets/slide', 'public');
+                $data['image'] = $request->file('image')->store('assets/gallery', 'public');
             }
 
-            $slide->update($data);
+            $gallery->update($data);
             return response()->json([
                 "status" => "success",
-                "message" => "Data slide berhasil diperbarui"
+                "message" => "Data gallery berhasil diperbarui"
             ]);
         } catch (\Exception $err) {
             if ($request->file('image')) {
-                unlink(public_path('storage/assets/slide/' . $request->image->hashName()));
+                unlink(public_path('storage/assets/gallery/' . $request->image->hashName()));
             }
             return response()->json([
                 "status" => "error",
@@ -182,14 +182,14 @@ class SlideController extends Controller
                 ], 400);
             }
 
-            $slide = Slide::find($data['id']);
-            if (!$slide) {
+            $gallery = Gallery::find($data['id']);
+            if (!$gallery) {
                 return response()->json([
                     "status" => "error",
-                    "message" => "Data slide tidak ditemukan"
+                    "message" => "Data gallery tidak ditemukan"
                 ], 404);
             }
-            $slide->update($data);
+            $gallery->update($data);
             return response()->json([
                 "status" => "success",
                 "message" => "Status berhasil diperbarui"
@@ -218,20 +218,20 @@ class SlideController extends Controller
             }
 
             $id = $request->id;
-            $slide = Slide::find($id);
-            if (!$slide) {
+            $gallery = Gallery::find($id);
+            if (!$gallery) {
                 return response()->json([
                     "status" => "error",
-                    "message" => "Data slide tidak ditemukan"
+                    "message" => "Data gallery tidak ditemukan"
                 ], 404);
             }
 
-            $oldImagePath = "public/" . $slide->image;
+            $oldImagePath = "public/" . $gallery->image;
             if (Storage::exists($oldImagePath)) {
                 Storage::delete($oldImagePath);
             }
 
-            $slide->delete();
+            $gallery->delete();
             return response()->json([
                 "status" => "success",
                 "message" => "Data slide berhasil dihapus"
@@ -246,7 +246,7 @@ class SlideController extends Controller
 
     public function dataTable(Request $request)
     {
-        $query = Slide::query();
+        $query = Gallery::query();
 
         if ($request->query("search")) {
             $searchValue = $request->query("search")['value'];
@@ -257,7 +257,7 @@ class SlideController extends Controller
 
         $recordsFiltered = $query->count();
 
-        $data = $query->orderBy('order', 'asc')
+        $data = $query->orderBy('created_at', 'asc')
             ->skip($request->query('start'))
             ->limit($request->query('length'))
             ->get();
@@ -305,7 +305,7 @@ class SlideController extends Controller
             return $item;
         });
 
-        $total = Slide::count();
+        $total = Gallery::count();
         return response()->json([
             'draw' => $request->query('draw'),
             'recordsFiltered' => $recordsFiltered,

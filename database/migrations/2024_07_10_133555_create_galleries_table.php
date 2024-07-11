@@ -15,6 +15,7 @@ return new class extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('image');
+            $table->enum('is_publish', ['Y', 'N']);
             $table->timestamps();
             $table->softDeletes();
         });
