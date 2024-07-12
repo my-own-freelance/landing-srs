@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\CustomTemplateController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
@@ -29,6 +30,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // AUTH
 Route::group(["middleware" => "guest"], function () {
     Route::post("/auth/login", [AuthController::class, "validateLogin"]);
+    Route::get("/contact/create", [ContactController::class, "create"]);
 });
 
 Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(function () {
@@ -90,5 +92,12 @@ Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(func
         Route::post("create", [ReviewController::class, "create"]);
         Route::post("update", [ReviewController::class, "update"]);
         Route::delete("/", [ReviewController::class, "destroy"]);
+    });
+
+    // CONTACT
+    Route::group(["prefix" => "contact"], function () {
+        Route::get("datatable", [ContactController::class, "dataTable"]);
+        Route::get("{id}/detail", [ContactController::class, "getDetail"]);
+        Route::delete("/", [ContactController::class, "destroy"]);
     });
 });

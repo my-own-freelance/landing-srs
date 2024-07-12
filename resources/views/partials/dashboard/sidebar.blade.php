@@ -55,6 +55,12 @@
                         <p>Review</p>
                     </a>
                 </li>
+                <li class="nav-item ml-3 {{ $routename == 'contact' ? 'active' : '' }}">
+                    <a href="{{ route('contact') }}">
+                        <i class="fas fa-envelope"></i>
+                        <p>Hubungi Kami</p>
+                    </a>
+                </li>a
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>

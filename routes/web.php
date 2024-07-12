@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Admin\ArticleController;
+use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
@@ -43,4 +44,5 @@ Route::prefix('admin')->namespace('admin')->middleware(['auth'])->group(function
     Route::get('gallery', [GalleryController::class, 'index'])->name('gallery');
     Route::get('team', [TeamController::class, 'index'])->name('team');
     Route::get('review', [ReviewController::class, 'index'])->name('review');
+    Route::get('contact', [ContactController::class, 'index'])->name('contact');
 });
