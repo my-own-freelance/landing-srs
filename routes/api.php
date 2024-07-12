@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\CustomTemplateController;
@@ -106,5 +107,11 @@ Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(func
     Route::group(["prefix" => "public-information"], function () {
         Route::get("/detail", [PublicInformationController::class, 'getDetail']);
         Route::post("/create-update", [PublicInformationController::class, 'createAndUpdate']);
+    });
+
+    // AVIYT
+    Route::group(["prefix" => "about"], function () {
+        Route::get("/detail", [AboutController::class, 'getDetail']);
+        Route::post("/create-update", [AboutController::class, 'createAndUpdate']);
     });
 });

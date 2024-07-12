@@ -10,5 +10,5 @@ class About extends Model
 {
     use HasFactory, SoftDeletes;
 
-    protected $fillable = ['order', 'title', 'description', 'image', 'is_publish'];
+    protected $fillable = ['description', 'location', 'address', 'whatsapp', 'telegram', 'email', 'twitter', 'youtube', 'linkedin'];
 }

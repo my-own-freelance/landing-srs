@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('abouts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->longText('description')->nullable();
-            $table->string('location')->nullable();
+            $table->longText('location')->nullable();
             $table->string('address')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('telegram')->nullable();

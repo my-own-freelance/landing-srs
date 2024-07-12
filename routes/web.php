@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -47,4 +48,7 @@ Route::prefix('admin')->namespace('admin')->middleware(['auth'])->group(function
     Route::get('review', [ReviewController::class, 'index'])->name('review');
     Route::get('contact', [ContactController::class, 'index'])->name('contact');
     Route::get('public-information', [PublicInformationController::class, 'index'])->name('public-information');
+    Route::get('about', [AboutController::class, 'index'])->name('about');
+    Route::get('about/webinfo', [AboutController::class, 'webinfo'])->name("about.webinfo");
+    Route::get('about/sosmed', [AboutController::class, 'sosmed'])->name("about.sosmed");
 });

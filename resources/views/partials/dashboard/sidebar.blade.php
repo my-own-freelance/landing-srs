@@ -67,6 +67,12 @@
                         <p>Informasi Publik</p>
                     </a>
                 </li>
+                <li class="nav-item ml-3 {{ $routename == 'about' ? 'active' : '' }}">
+                    <a href="{{ route('about') }}">
+                        <i class="fas fa-address-card"></i>
+                        <p>Tentang Kami</p>
+                    </a>
+                </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>
