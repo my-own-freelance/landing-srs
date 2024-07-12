@@ -49,6 +49,12 @@
                         <p>Team</p>
                     </a>
                 </li>
+                <li class="nav-item ml-3 {{ $routename == 'review' ? 'active' : '' }}">
+                    <a href="{{ route('review') }}">
+                        <i class="fas fa-comment-dots"></i>
+                        <p>Review</p>
+                    </a>
+                </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>

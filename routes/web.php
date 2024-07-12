@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\AuthController;
@@ -41,4 +42,5 @@ Route::prefix('admin')->namespace('admin')->middleware(['auth'])->group(function
     Route::get('product', [ProductController::class, 'index'])->name('product');
     Route::get('gallery', [GalleryController::class, 'index'])->name('gallery');
     Route::get('team', [TeamController::class, 'index'])->name('team');
+    Route::get('review', [ReviewController::class, 'index'])->name('review');
 });

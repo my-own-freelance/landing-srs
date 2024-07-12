@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ArticleController;
 use App\Http\Controllers\Admin\CustomTemplateController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\AuthController;
@@ -80,5 +81,14 @@ Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(func
         Route::post("create", [TeamController::class, "create"]);
         Route::post("update", [TeamController::class, "update"]);
         Route::delete("/", [TeamController::class, "destroy"]);
+    });
+
+    // REVIEW
+    Route::group(["prefix" => "review"], function () {
+        Route::get("datatable", [ReviewController::class, "dataTable"]);
+        Route::get("{id}/detail", [ReviewController::class, "getDetail"]);
+        Route::post("create", [ReviewController::class, "create"]);
+        Route::post("update", [ReviewController::class, "update"]);
+        Route::delete("/", [ReviewController::class, "destroy"]);
     });
 });
