@@ -60,7 +60,13 @@
                         <i class="fas fa-envelope"></i>
                         <p>Hubungi Kami</p>
                     </a>
-                </li>a
+                </li>
+                <li class="nav-item ml-3 {{ $routename == 'public-information' ? 'active' : '' }}">
+                    <a href="{{ route('public-information') }}">
+                        <i class="fas fa-info-circle"></i>
+                        <p>Informasi Publik</p>
+                    </a>
+                </li>
                 <li class="nav-section">
                     <span class="sidebar-mini-icon">
                         <i class="fa fa-ellipsis-h"></i>

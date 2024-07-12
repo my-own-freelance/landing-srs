@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\CustomTemplateController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\ProductController;
+use App\Http\Controllers\Admin\PublicInformationController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\Admin\TeamController;
@@ -99,5 +100,11 @@ Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(func
         Route::get("datatable", [ContactController::class, "dataTable"]);
         Route::get("{id}/detail", [ContactController::class, "getDetail"]);
         Route::delete("/", [ContactController::class, "destroy"]);
+    });
+
+    // PUBLIC INFORMATION
+    Route::group(["prefix" => "public-information"], function () {
+        Route::get("/detail", [PublicInformationController::class, 'getDetail']);
+        Route::post("/create-update", [PublicInformationController::class, 'createAndUpdate']);
     });
 });

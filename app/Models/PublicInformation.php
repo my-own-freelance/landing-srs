@@ -18,4 +18,6 @@ class PublicInformation extends Model
         'customer_review',
         'contact_us'
     ];
+
+    protected $table = 'public_informations';
 }
