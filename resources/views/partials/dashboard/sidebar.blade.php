@@ -58,7 +58,7 @@
                 <li class="nav-item ml-3 {{ $routename == 'contact' ? 'active' : '' }}">
                     <a href="{{ route('contact') }}">
                         <i class="fas fa-envelope"></i>
-                        <p>Hubungi Kami</p>
+                        <p>Pesan Masuk</p>
                     </a>
                 </li>
                 <li class="nav-item ml-3 {{ $routename == 'public-information' ? 'active' : '' }}">

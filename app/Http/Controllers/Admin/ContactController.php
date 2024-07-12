@@ -12,7 +12,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $title = "Hubungi Kami";
+        $title = "Pesan Masuk";
         return view("pages.admin.contact", compact("title"));
     }
 

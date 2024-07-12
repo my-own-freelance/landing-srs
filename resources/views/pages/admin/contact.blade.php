@@ -6,7 +6,7 @@
             <div class="card">
                 <div class="card-header">
                     <div class="card-header-left">
-                        <h5 class="text-uppercase title">Hubungi Kami</h5>
+                        <h5 class="text-uppercase title">Pesan Masuk</h5>
                     </div>
                     <div class="card-header-right">
                         <button class="btn btn-mini btn-info mr-1" onclick="return refreshData();">Refresh</button>
