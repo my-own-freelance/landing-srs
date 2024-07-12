@@ -24,8 +24,9 @@
             <!-- Logo Header -->
             <div class="logo-header" data-background-color="{{ $logoColor }}">
                 <a href="{{route('dashboard')}}" class="logo">
-                    <h1 class="text-white mt-3" style="font-weight: 800!important">ESDM</h1>
-                    {{-- <img src="https://via.placeholder.com/100x35" alt="navbar brand" class="navbar-brand"> --}}
+                    {{-- <h1 class="text-white mt-3" style="font-weight: 800!important">ESDM</h1> --}}
+                    <img src="{{asset('icon/icon.png')}}" width="50" height="50" alt="navbar brand" class="navbar-brand"> 
+                    <strong class="text-white text-bold">PT. SRS</strong>
                 </a>
                 <button class="navbar-toggler sidenav-toggler ml-auto" type="button" data-toggle="collapse"
                     data-target="collapse" aria-expanded="false" aria-label="Toggle navigation">

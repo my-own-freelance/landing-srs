@@ -51,4 +51,5 @@ Route::prefix('admin')->namespace('admin')->middleware(['auth'])->group(function
     Route::get('about', [AboutController::class, 'index'])->name('about');
     Route::get('about/webinfo', [AboutController::class, 'webinfo'])->name("about.webinfo");
     Route::get('about/sosmed', [AboutController::class, 'sosmed'])->name("about.sosmed");
+    Route::get('account', [AuthController::class, 'account'])->name('account'); 
 });

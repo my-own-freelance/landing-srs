@@ -114,4 +114,10 @@ Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(func
         Route::get("/detail", [AboutController::class, 'getDetail']);
         Route::post("/create-update", [AboutController::class, 'createAndUpdate']);
     });
+
+    // CHANGE PASS
+    Route::group(["prefix" => "user"], function () {
+        Route::get("/detail", [AuthController::class, "detail"]);
+        Route::post("/update", [AuthController::class, "update"]);
+    });
 });
