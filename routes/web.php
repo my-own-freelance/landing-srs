@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PublicInformationController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 
@@ -51,5 +52,6 @@ Route::prefix('admin')->namespace('admin')->middleware(['auth'])->group(function
     Route::get('about', [AboutController::class, 'index'])->name('about');
     Route::get('about/webinfo', [AboutController::class, 'webinfo'])->name("about.webinfo");
     Route::get('about/sosmed', [AboutController::class, 'sosmed'])->name("about.sosmed");
-    Route::get('account', [AuthController::class, 'account'])->name('account'); 
+    Route::get('account', [AuthController::class, 'account'])->name('account');
+    Route::get('user', [UserController::class, 'index'])->name('user');
 });

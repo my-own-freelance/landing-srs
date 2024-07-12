@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\PublicInformationController;
 use App\Http\Controllers\Admin\ReviewController;
 use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\Admin\TeamController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -119,5 +120,15 @@ Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(func
     Route::group(["prefix" => "user"], function () {
         Route::get("/detail", [AuthController::class, "detail"]);
         Route::post("/update", [AuthController::class, "update"]);
+    });
+
+    // USER
+    Route::group(["prefix" => "user"], function () {
+        Route::get("datatable", [UserController::class, "dataTable"]);
+        Route::get("{id}/detail", [UserController::class, "getDetail"]);
+        Route::post("/create", [UserController::class, "create"]);
+        Route::post("/update", [UserController::class, "update"]);
+        Route::post("/update-status", [UserController::class, "updateStatus"]);
+        Route::delete("/", [UserController::class, "destroy"]);
     });
 });
