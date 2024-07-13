@@ -91,20 +91,20 @@
                     </div>
                     <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
                         <h6 class="text-secondary text-uppercase mb-3">Tentang Kami</h6>
-                        <h1 class="mb-5">Pelayanan Export Hasil Laut dan Rempah Rempah Indonesia</h1>
+                        <h1 class="mb-5">Pelayanan Export/Import Hasil Bumi dan Laut Indonesia</h1>
                         <div class="mb-5">{!! $about->description !!}</div>
                         <div class="row g-4 mb-5">
                             <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
                                 <i class="fa fa-globe fa-3x text-primary mb-3"></i>
                                 <h5>Cakupan Global</h5>
-                                <p class="m-0">Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam
-                                    justo.</p>
+                                <p class="m-0">Menghubungkan hasil bumi dan laut Indonesia ke seluruh dunia dengan
+                                    layanan ekspor/impor terpercaya.</p>
                             </div>
                             <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
                                 <i class="fa fa-shipping-fast fa-3x text-primary mb-3"></i>
-                                <h5>Best Service</h5>
-                                <p class="m-0">Stet stet justo dolor sed duo. Ut clita sea sit ipsum diam lorem diam
-                                    justo.</p>
+                                <h5>Pelayanan Terbaik</h5>
+                                <p class="m-0">Memberikan layanan ekspor/impor terbaik dengan kecepatan, keamanan, dan
+                                    kepuasan pelanggan sebagai prioritas.</p>
                             </div>
                         </div>
                         <a href="/about" class="btn btn-primary py-3 px-5">Explore More</a>
@@ -122,7 +122,7 @@
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        {{-- <h6 class="text-secondary text-uppercase mb-3">Some Facts</h6> --}}
+                        <h6 class="text-secondary text-uppercase mb-3">Fakta Menarik</h6>
                         <h1 class="mb-5">{{ $information->title }}</h1>
                         <p class="mb-5">{!! $information->description !!}</p>
                         <div class="d-flex align-items-center">
@@ -201,30 +201,31 @@
         <div class="container feature py-5 px-lg-0">
             <div class="row g-5 mx-lg-0">
                 <div class="col-lg-6 feature-text wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="text-secondary text-uppercase mb-3">Our Features</h6>
-                    <h1 class="mb-5">We Are Trusted Logistics Company Since 1990</h1>
+                    <h6 class="text-secondary text-uppercase mb-3">Fitur Kami</h6>
+                    <h1 class="mb-5">Percayakan Kebutuhan Logistik Anda Pada Kami</h1>
                     <div class="d-flex mb-5 wow fadeInUp" data-wow-delay="0.3s">
                         <i class="fa fa-globe text-primary fa-3x flex-shrink-0"></i>
                         <div class="ms-4">
-                            <h5>Worldwide Service</h5>
-                            <p class="mb-0">Diam dolor ipsum sit amet eos erat ipsum lorem sed stet lorem sit clita
-                                duo justo magna erat amet</p>
+                            <h5>Layanan Global</h5>
+                            <p class="mb-0">Menghubungkan impor dan ekspor Anda ke seluruh dunia dengan kehandalan dan
+                                efisiensi.
+                            </p>
                         </div>
                     </div>
                     <div class="d-flex mb-5 wow fadeIn" data-wow-delay="0.5s">
                         <i class="fa fa-shipping-fast text-primary fa-3x flex-shrink-0"></i>
                         <div class="ms-4">
-                            <h5>On Time Delivery</h5>
-                            <p class="mb-0">Diam dolor ipsum sit amet eos erat ipsum lorem sed stet lorem sit clita
-                                duo justo magna erat amet</p>
+                            <h5>Pengiriman Tepat Waktu</h5>
+                            <p class="mb-0">Menjamin pengiriman barang sesuai jadwal untuk memenuhi kebutuhan bisnis
+                                Anda.</p>
                         </div>
                     </div>
                     <div class="d-flex mb-0 wow fadeInUp" data-wow-delay="0.7s">
                         <i class="fa fa-headphones text-primary fa-3x flex-shrink-0"></i>
                         <div class="ms-4">
-                            <h5>24/7 Telephone Support</h5>
-                            <p class="mb-0">Diam dolor ipsum sit amet eos erat ipsum lorem sed stet lorem sit clita
-                                duo justo magna erat amet</p>
+                            <h5>24/7 Dukungan Telepon</h5>
+                            <p class="mb-0">DLayanan bantuan cepat dan responsif untuk setiap kebutuhan logistik impor
+                                dan ekspor Anda</p>
                         </div>
                     </div>
                 </div>
