@@ -16,6 +16,14 @@ class ReviewController extends Controller
         return view("pages.admin.review", compact("title"));
     }
 
+    // FRONT PAGE
+    public function homeReview(Request $request)
+    {
+        $title = 'Testimonial - PT. SAMUDERA RIZKI SEJAHTERA';
+        $reviews = Review::inRandomOrder()->limit(12)->get();
+        return view('pages.front.review', compact('title', 'reviews'));
+    }
+
     // HANDLER API
     public function create(Request $request)
     {

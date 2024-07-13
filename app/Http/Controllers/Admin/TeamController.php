@@ -20,7 +20,7 @@ class TeamController extends Controller
     // FRONT PAGE
     public function homeTeam(Request $request)
     {
-        $title = 'Teams - PT. SAMUDERA RIZKI SEJAHTERA';
+        $title = 'Team - PT. SAMUDERA RIZKI SEJAHTERA';
         $teams = Team::where(function ($query) use ($request) {
             if (($s = $request->s)) {
                 $query->orWhere('name', 'LIKE', '%' . $s . '%')

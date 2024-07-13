@@ -21,7 +21,8 @@
                     class="nav-link dropdown-toggle {{ $routename == 'home.article' ||
                     $routename == 'home.article.detail' ||
                     $routename == 'home.gallery' ||
-                    $routename == 'home.team'
+                    $routename == 'home.team' ||
+                    $routename == 'home.testimonial'
                         ? 'active'
                         : '' }}"
                     data-bs-toggle="dropdown">Pages</a>
@@ -29,7 +30,7 @@
                     <a href="{{ route('home.article') }}" class="dropdown-item">Artikel</a>
                     <a href="{{ route('home.gallery') }}" class="dropdown-item">Gallery</a>
                     <a href="{{ route('home.team') }}" class="dropdown-item">Team</a>
-                    <a href="testimonial.html" class="dropdown-item">Testimonial</a>
+                    <a href="{{ route('home.testimonial') }}" class="dropdown-item">Testimonial</a>
                 </div>
             </div>
             <a href="contact.html" class="nav-item nav-link">Contact</a>

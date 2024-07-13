@@ -4,47 +4,16 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5" style="margin-bottom: 6rem;">
         <div class="container py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Team</h1>
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Testimonial</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="text-white" href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Team</li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Testimonial</li>
                 </ol>
             </nav>
         </div>
     </div>
     <!-- Page Header End -->
-
-
-    <!-- Team Start -->
-    <div class="container-xxl py-5">
-        <div class="container py-5">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-secondary text-uppercase">Team Kami</h6>
-                <h1 class="mb-5">Anggota Team Ahli</h1>
-            </div>
-            <div class="row g-4">
-                @forelse ($teams as $team)
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item p-4">
-                            <div class="overflow-hidden mb-4">
-                                <img class="img-fluid" src="{{ Storage::url($team->image) }}" alt="{{ $team->name }}">
-                            </div>
-                            <h5 class="mb-0">{{ $team->name }}</h5>
-                            <p>{{ $team->position }}</p>
-                        </div>
-                    </div>
-                @empty
-                @endforelse
-            </div>
-            <div class="row g-4 mt-5">
-                <div class="col-md-12 mx-auto text-center wow fadeInUp" data-wow-delay="0.3s">
-                    {{ $teams->links() }}
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Team End -->
 
     <!-- Testimonial Start -->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
