@@ -4,11 +4,11 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5" style="margin-bottom: 6rem;">
         <div class="container py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Produk Kami</h1>
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Produsts</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="text-white" href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Produk</li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Products</li>
                 </ol>
             </nav>
         </div>
@@ -20,8 +20,8 @@
     <div class="container-xxl py-5">
         <div class="container py-5">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-secondary text-uppercase">Produk Kami</h6>
-                <h1 class="mb-5">Jelajahi Produk Kami</h1>
+                <h6 class="text-secondary text-uppercase">Our Products</h6>
+                <h1 class="mb-5">Explore Our Products</h1>
             </div>
             <div class="row g-4">
                 @forelse ($products as $product)
@@ -35,7 +35,7 @@
                             <a class="btn-slide mt-2"
                                 href="{{ route('home.product.detail', ['id' => $product->id, 'slug' => $product->slug]) }}">
                                 <i class="fa fa-arrow-right"></i>
-                                <span>Lihat Detail</span>
+                                <span>Read Mode</span>
                             </a>
                         </div>
                     </div>
@@ -57,7 +57,7 @@
         <div class="container py-5">
             <div class="text-center">
                 <h6 class="text-secondary text-uppercase">Testimonial</h6>
-                <h1 class="mb-0">Apa pendapat mereka tentang kami!</h1>
+                <h1 class="mb-0">Our Client Say!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                 @forelse ($reviews as $review)

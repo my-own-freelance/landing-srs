@@ -16,7 +16,7 @@
             <a href="{{ route('home.about') }}"
                 class="nav-item nav-link {{ $routename == 'home.about' ? 'active' : '' }}">About</a>
             <a href="{{ route('home.product') }}"
-                class="nav-item nav-link {{ $routename == 'home.product' || $routename == 'home.product.detail' ? 'active' : '' }}">Produk</a>
+                class="nav-item nav-link {{ $routename == 'home.product' || $routename == 'home.product.detail' ? 'active' : '' }}">Products</a>
             <div class="nav-item dropdown">
                 <a href="#"
                     class="nav-link dropdown-toggle {{ $routename == 'home.article' ||
@@ -28,9 +28,9 @@
                         : '' }}"
                     data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu fade-up m-0">
-                    <a href="{{ route('home.article') }}" class="dropdown-item">Artikel</a>
-                    <a href="{{ route('home.gallery') }}" class="dropdown-item">Gallery</a>
-                    <a href="{{ route('home.team') }}" class="dropdown-item">Team</a>
+                    <a href="{{ route('home.article') }}" class="dropdown-item">Articles</a>
+                    <a href="{{ route('home.gallery') }}" class="dropdown-item">Galleries</a>
+                    <a href="{{ route('home.team') }}" class="dropdown-item">Teams</a>
                     <a href="{{ route('home.testimonial') }}" class="dropdown-item">Testimonial</a>
                 </div>
             </div>
@@ -42,6 +42,9 @@
                     class="fa fa-headphones text-warning me-3"></i>{{ $setting->whatsapp }}
             </h4>
         @endif
+        <div id="google_translate_element">
+            
+        </div>
     </div>
 </nav>
 <!-- Navbar End -->

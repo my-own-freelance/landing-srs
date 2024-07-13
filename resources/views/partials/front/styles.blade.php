@@ -1,3 +1,4 @@
+<link rel="apple-touch-icon" href="{{ asset('icon/icon.png') }}">
 <!-- Favicon -->
 <link href="{{ asset('icon/icon.png') }}" rel="icon">
 

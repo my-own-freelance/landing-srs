@@ -8,6 +8,7 @@
         <meta name="keywords" content="{{ $article->title }}" />
         <meta property="og:description"
             content="{{ Illuminate\Support\Str::limit(strip_tags($article->description), 200) }}" />
+        <meta name="description" content="{{ Illuminate\Support\Str::limit(strip_tags($article->excerpt), 200) }}" />
         <meta name="excerpt" content="{{ Illuminate\Support\Str::limit(strip_tags($article->excerpt), 200) }}" />
     @endif
 @endpush
@@ -15,11 +16,12 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5" style="margin-bottom: 6rem;">
         <div class="container py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Artikel</h1>
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Article Detail</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="text-white" href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="{{ route('home.article') }}">Artikel</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="{{ route('home.article') }}">Article Detail</a>
+                    </li>
                     <li class="breadcrumb-item text-white active" aria-current="page">{{ $article ? $article->title : '' }}
                     </li>
                 </ol>

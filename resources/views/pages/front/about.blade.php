@@ -32,13 +32,13 @@
                         <div class="mb-5">{!! $about->description !!}</div>
                         <div class="row g-4 mb-5">
                             <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                                <i class="fa fa-globe fa-3x text-primary mb-3"></i>
+                                <i class="fa fa-globe fa-3x text-success mb-3"></i>
                                 <h5>Global Coverage</h5>
                                 <p class="m-0">Connecting Indonesian agricultural and marine products to the rest of the
                                     world with trusted export/import services.</p>
                             </div>
                             <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
-                                <i class="fa fa-shipping-fast fa-3x text-primary mb-3"></i>
+                                <i class="fa fa-shipping-fast fa-3x text-secondary mb-3"></i>
                                 <h5>On Time Delivery</h5>
                                 <p class="m-0">Providing the best export/import services with speed, security and
                                     customer satisfaction as priorities.</p>
@@ -109,7 +109,7 @@
                     <h6 class="text-secondary text-uppercase mb-3">OUR FEATURES</h6>
                     <h1 class="mb-5">Trust Your Needs to Us</h1>
                     <div class="d-flex mb-5 wow fadeInUp" data-wow-delay="0.3s">
-                        <i class="fa fa-globe text-primary fa-3x flex-shrink-0"></i>
+                        <i class="fa fa-globe text-success fa-3x flex-shrink-0"></i>
                         <div class="ms-4">
                             <h5>Worldwide Service</h5>
                             <p class="mb-0">Connect your imports and exports worldwide with reliability and efficiency.
@@ -117,14 +117,14 @@
                         </div>
                     </div>
                     <div class="d-flex mb-5 wow fadeIn" data-wow-delay="0.5s">
-                        <i class="fa fa-shipping-fast text-primary fa-3x flex-shrink-0"></i>
+                        <i class="fa fa-shipping-fast text-secondary fa-3x flex-shrink-0"></i>
                         <div class="ms-4">
                             <h5>On Time Delivery</h5>
                             <p class="mb-0">Guarantee delivery of goods on schedule to meet your business needs.</p>
                         </div>
                     </div>
                     <div class="d-flex mb-0 wow fadeInUp" data-wow-delay="0.7s">
-                        <i class="fa fa-headphones text-primary fa-3x flex-shrink-0"></i>
+                        <i class="fa fa-headphones text-warning fa-3x flex-shrink-0"></i>
                         <div class="ms-4">
                             <h5>24/7 Telephone Support</h5>
                             <p class="mb-0">Fast and responsive support service for all your import and export logistics
@@ -167,6 +167,4 @@
         </div>
     </div>
     <!-- Team End -->
-
-
 @endsection

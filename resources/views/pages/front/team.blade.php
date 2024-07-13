@@ -20,8 +20,8 @@
     <div class="container-xxl py-5">
         <div class="container py-5">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-secondary text-uppercase">Team Kami</h6>
-                <h1 class="mb-5">Anggota Team Ahli</h1>
+                <h6 class="text-secondary text-uppercase">Our Team</h6>
+                <h1 class="mb-5">Expert Team Members</h1>
             </div>
             <div class="row g-4">
                 @forelse ($teams as $team)
@@ -51,7 +51,7 @@
         <div class="container py-5">
             <div class="text-center">
                 <h6 class="text-secondary text-uppercase">Testimonial</h6>
-                <h1 class="mb-0">Apa pendapat mereka tentang kami!</h1>
+                <h1 class="mb-0">Our Client Say!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                 @forelse ($reviews as $review)

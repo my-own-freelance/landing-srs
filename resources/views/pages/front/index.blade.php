@@ -17,7 +17,7 @@
                                     <h1 class="display-3 text-white animated slideInDown mb-4">{{ $slider->title }}</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">{{ $slider->title }}</p>
                                     <a href="{{ route('home.about') }}"
-                                        class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Lebih Lanjut</a>
+                                        class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
                                     <a href="{{ route('home.contact') }}"
                                         class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact</a>
                                 </div>
@@ -90,21 +90,21 @@
                         </div>
                     </div>
                     <div class="col-lg-6 about-text wow fadeInUp" data-wow-delay="0.3s">
-                        <h6 class="text-secondary text-uppercase mb-3">Tentang Kami</h6>
-                        <h1 class="mb-5">Pelayanan Export/Import Hasil Bumi dan Laut Indonesia</h1>
+                        <h6 class="text-secondary text-uppercase mb-3">About Us</h6>
+                        <h1 class="mb-5">Export/Import Services for Indonesian Earth and Sea Products</h1>
                         <div class="mb-5">{!! $about->description !!}</div>
                         <div class="row g-4 mb-5">
                             <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                                <i class="fa fa-globe fa-3x text-primary mb-3"></i>
-                                <h5>Cakupan Global</h5>
-                                <p class="m-0">Menghubungkan hasil bumi dan laut Indonesia ke seluruh dunia dengan
-                                    layanan ekspor/impor terpercaya.</p>
+                                <i class="fa fa-globe fa-3x text-success mb-3"></i>
+                                <h5>Global Coverage</h5>
+                                <p class="m-0">Connecting Indonesian agricultural and marine products to the rest of the
+                                    world with trusted export/import services.</p>
                             </div>
                             <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
-                                <i class="fa fa-shipping-fast fa-3x text-primary mb-3"></i>
-                                <h5>Pelayanan Terbaik</h5>
-                                <p class="m-0">Memberikan layanan ekspor/impor terbaik dengan kecepatan, keamanan, dan
-                                    kepuasan pelanggan sebagai prioritas.</p>
+                                <i class="fa fa-shipping-fast fa-3x text-secondary mb-3"></i>
+                                <h5>On Time Delivery</h5>
+                                <p class="m-0">Providing the best export/import services with speed, security and
+                                    customer satisfaction as priorities.</p>
                             </div>
                         </div>
                     </div>
@@ -114,20 +114,19 @@
     @endif
     <!-- About End -->
 
-
     <!-- Fact Start -->
     @if ($information)
         <div class="container-xxl py-5">
             <div class="container py-5">
                 <div class="row g-5">
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <h6 class="text-secondary text-uppercase mb-3">Fakta Menarik</h6>
+                        <h6 class="text-secondary text-uppercase mb-3">SOME FACTS</h6>
                         <h1 class="mb-5">{{ $information->title }}</h1>
                         <p class="mb-5">{!! $information->description !!}</p>
                         <div class="d-flex align-items-center">
                             <i class="fa fa-headphones fa-2x flex-shrink-0 bg-primary p-3 text-white"></i>
                             <div class="ps-4">
-                                <h6>Hubungi kami!</h6>
+                                <h6>Call for any query!</h6>
                                 <h3 class="text-primary m-0">{{ $information->contact_us }}</h3>
                             </div>
                         </div>
@@ -139,13 +138,13 @@
                                     <i class="fa fa-users fa-2x text-white mb-3"></i>
                                     <h2 class="text-white mb-2" data-toggle="counter-up">{{ $information->happy_client }}
                                     </h2>
-                                    <p class="text-white mb-0">Pelangan Gembira</p>
+                                    <p class="text-white mb-0">Happy Clients</p>
                                 </div>
                                 <div class="bg-secondary p-4 wow fadeIn" data-wow-delay="0.5s">
                                     <i class="fa fa-ship fa-2x text-white mb-3"></i>
                                     <h2 class="text-white mb-2" data-toggle="counter-up">
                                         {{ $information->complete_shipment }}</h2>
-                                    <p class="text-white mb-0">Pengiriman Lengkap</p>
+                                    <p class="text-white mb-0">Complete Shipments</p>
                                 </div>
                             </div>
                             <div class="col-sm-6">
@@ -153,7 +152,7 @@
                                     <i class="fa fa-star fa-2x text-white mb-3"></i>
                                     <h2 class="text-white mb-2" data-toggle="counter-up">
                                         {{ $information->customer_review }}</h2>
-                                    <p class="text-white mb-0">Ulasan Pelanggan</p>
+                                    <p class="text-white mb-0">Customer Reviews</p>
                                 </div>
                             </div>
                         </div>
@@ -169,8 +168,8 @@
     <div class="container-xxl py-5">
         <div class="container py-5">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-secondary text-uppercase">Produk Kami</h6>
-                <h1 class="mb-5">Jelajahi Produk Kami</h1>
+                <h6 class="text-secondary text-uppercase">Our Products</h6>
+                <h1 class="mb-5">Explore Our Products</h1>
             </div>
             <div class="row g-4">
                 @forelse ($products as $product)
@@ -184,7 +183,7 @@
                             <a class="btn-slide mt-2"
                                 href="{{ route('home.product.detail', ['id' => $product->id, 'slug' => $product->slug]) }}">
                                 <i class="fa fa-arrow-right"></i>
-                                <span>Lihat Detail</span>
+                                <span>Read More</span>
                             </a>
                         </div>
                     </div>
@@ -201,31 +200,29 @@
         <div class="container feature py-5 px-lg-0">
             <div class="row g-5 mx-lg-0">
                 <div class="col-lg-6 feature-text wow fadeInUp" data-wow-delay="0.1s">
-                    <h6 class="text-secondary text-uppercase mb-3">Fitur Kami</h6>
-                    <h1 class="mb-5">Percayakan Kebutuhan Logistik Anda Pada Kami</h1>
+                    <h6 class="text-secondary text-uppercase mb-3">OUR FEATURES</h6>
+                    <h1 class="mb-5">Trust Your Needs to Us</h1>
                     <div class="d-flex mb-5 wow fadeInUp" data-wow-delay="0.3s">
-                        <i class="fa fa-globe text-primary fa-3x flex-shrink-0"></i>
+                        <i class="fa fa-globe text-success fa-3x flex-shrink-0"></i>
                         <div class="ms-4">
-                            <h5>Layanan Global</h5>
-                            <p class="mb-0">Menghubungkan impor dan ekspor Anda ke seluruh dunia dengan kehandalan dan
-                                efisiensi.
+                            <h5>Worldwide Service</h5>
+                            <p class="mb-0">Connect your imports and exports worldwide with reliability and efficiency.
                             </p>
                         </div>
                     </div>
                     <div class="d-flex mb-5 wow fadeIn" data-wow-delay="0.5s">
-                        <i class="fa fa-shipping-fast text-primary fa-3x flex-shrink-0"></i>
+                        <i class="fa fa-shipping-fast text-secondary fa-3x flex-shrink-0"></i>
                         <div class="ms-4">
-                            <h5>Pengiriman Tepat Waktu</h5>
-                            <p class="mb-0">Menjamin pengiriman barang sesuai jadwal untuk memenuhi kebutuhan bisnis
-                                Anda.</p>
+                            <h5>On Time Delivery</h5>
+                            <p class="mb-0">Guarantee delivery of goods on schedule to meet your business needs.</p>
                         </div>
                     </div>
                     <div class="d-flex mb-0 wow fadeInUp" data-wow-delay="0.7s">
-                        <i class="fa fa-headphones text-primary fa-3x flex-shrink-0"></i>
+                        <i class="fa fa-headphones text-warning fa-3x flex-shrink-0"></i>
                         <div class="ms-4">
-                            <h5>24/7 Dukungan Telepon</h5>
-                            <p class="mb-0">DLayanan bantuan cepat dan responsif untuk setiap kebutuhan logistik impor
-                                dan ekspor Anda</p>
+                            <h5>24/7 Telephone Support</h5>
+                            <p class="mb-0">Fast and responsive support service for all your import and export logistics
+                                needs</p>
                         </div>
                     </div>
                 </div>
@@ -244,8 +241,8 @@
     <div class="container-xxl py-5">
         <div class="container py-5">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-secondary text-uppercase">Team Kami</h6>
-                <h1 class="mb-5">Anggota Team Ahli</h1>
+                <h6 class="text-secondary text-uppercase">Our Team</h6>
+                <h1 class="mb-5">Expert Team Members</h1>
             </div>
             <div class="row g-4">
                 @forelse ($teams as $team)
@@ -267,12 +264,13 @@
     <!-- Team End -->
 
 
+
     <!-- Testimonial Start -->
     <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
         <div class="container py-5">
             <div class="text-center">
                 <h6 class="text-secondary text-uppercase">Testimonial</h6>
-                <h1 class="mb-0">Apa pendapat mereka tentang kami!</h1>
+                <h1 class="mb-0">Our Client Say!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                 @forelse ($reviews as $review)

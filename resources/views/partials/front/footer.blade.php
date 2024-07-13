@@ -2,7 +2,8 @@
 <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
     <div class="container py-5">
         <div class="row g-5">
-            <div class="col-lg-5 col-md-6">
+            <div class="col-lg-2 col-md-0"></div>
+            <div class="col-lg-4 col-md-6">
                 <h4 class="text-light mb-4">Address</h4>
                 @if ($setting)
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>{{ $setting->address }}</p>
@@ -20,13 +21,13 @@
                     </div>
                 @endif
             </div>
-            <div class="col-lg-5 col-md-6">
+            <div class="col-lg-4 col-md-6">
                 <h4 class="text-light mb-4">Quick Links</h4>
                 <a class="btn btn-link" href="{{ route('home.about') }}">About Us</a>
                 <a class="btn btn-link" href="{{ route('home.contact') }}">Contact Us</a>
-                <a class="btn btn-link" href="{{ route('home.product') }}">Produk</a>
-                <a class="btn btn-link" href="{{ route('home.article') }}">Artikel</a>
-                <a class="btn btn-link" href="{{ route('home.team') }}">Team</a>
+                <a class="btn btn-link" href="{{ route('home.product') }}">Products</a>
+                <a class="btn btn-link" href="{{ route('home.article') }}">Articles</a>
+                <a class="btn btn-link" href="{{ route('home.team') }}">Teams</a>
             </div>
         </div>
     </div>
