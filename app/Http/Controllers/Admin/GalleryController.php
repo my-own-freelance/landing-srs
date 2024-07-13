@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Gallery;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -14,6 +15,23 @@ class GalleryController extends Controller
     {
         $title = "Galeri";
         return view("pages.admin.gallery", compact("title"));
+    }
+
+    // FRONT PAGE
+    public function homeGallery(Request $request)
+    {
+        $title = 'Gallery - PT. SAMUDERA RIZKI SEJAHTERA';
+        $galleries = Gallery::where(function ($query) use ($request) {
+            if (($s = $request->s)) {
+                $query->orWhere('title', 'LIKE', '%' . $s . '%')->get();
+            }
+        })
+            ->where('is_publish', 'Y')
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        $reviews = Review::inRandomOrder()->limit(4)->get();
+        return view('pages.front.gallery', compact('title', 'galleries', 'reviews'));
     }
 
     // HANDLER API

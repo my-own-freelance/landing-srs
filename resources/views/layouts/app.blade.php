@@ -42,6 +42,7 @@
 
     {{-- SCRIPTS --}}
     @include('partials.front.scripts')
+    @stack('scripts')
 </body>
 
 </html>

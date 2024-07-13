@@ -34,7 +34,7 @@ class ProductController extends Controller
             ->orderBy('created_at', 'desc')
             ->paginate(12);
         
-            $reviews = Review::inRandomOrder()->limit(4)->get();
+        $reviews = Review::inRandomOrder()->limit(4)->get();
         return view('pages.front.product', compact('title', 'products', 'reviews'));
     }
 
