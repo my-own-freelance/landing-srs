@@ -272,7 +272,7 @@
         <div class="container py-5">
             <div class="text-center">
                 <h6 class="text-secondary text-uppercase">Testimonial</h6>
-                <h1 class="mb-0">Apa mereka tentang kami!</h1>
+                <h1 class="mb-0">Apa pendapat mereka tentang kami!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                 @forelse ($reviews as $review)

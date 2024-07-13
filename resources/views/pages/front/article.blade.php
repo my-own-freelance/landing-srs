@@ -4,11 +4,11 @@
     <!-- Page Header Start -->
     <div class="container-fluid page-header py-5" style="margin-bottom: 6rem;">
         <div class="container py-5">
-            <h1 class="display-3 text-white mb-3 animated slideInDown">Produk Kami</h1>
+            <h1 class="display-3 text-white mb-3 animated slideInDown">Artikel</h1>
             <nav aria-label="breadcrumb animated slideInDown">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a class="text-white" href="{{ route('home') }}">Home</a></li>
-                    <li class="breadcrumb-item text-white active" aria-current="page">Produk</li>
+                    <li class="breadcrumb-item text-white active" aria-current="page">Artikel</li>
                 </ol>
             </nav>
         </div>
@@ -20,20 +20,22 @@
     <div class="container-xxl py-5">
         <div class="container py-5">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h6 class="text-secondary text-uppercase">Produk Kami</h6>
-                <h1 class="mb-5">Jelajahi Produk Kami</h1>
+                <h6 class="text-secondary text-uppercase">Artikel</h6>
+                <h1 class="mb-5">Jelajahi Artikel</h1>
             </div>
             <div class="row g-4">
-                @forelse ($products as $product)
+                @forelse ($articles as $article)
                     <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="service-item p-4">
                             <div class="overflow-hidden mb-4">
-                                <img class="img-fluid" src="{{ Storage::url($product->image) }}" alt="">
+                                <img class="img-fluid" src="{{ Storage::url($article->image) }}" alt="">
                             </div>
-                            <h4 class="mb-3">{{ Illuminate\Support\Str::limit(strip_tags($product->title), 100) }}</h4>
-                            <p>{{ Illuminate\Support\Str::limit(strip_tags($product->excerpt), 200) }}</p>
+                            <h6 class="mb-2">{{ Illuminate\Support\Str::limit(strip_tags($article->title), 100) }}</h6>
+                            <small>{{ $article->views }} Pengunjung</small>
+                            <br>
+                            <small>{{ Illuminate\Support\Str::limit(strip_tags($article->excerpt), 200) }}</small>
                             <a class="btn-slide mt-2"
-                                href="{{ route('home.product.detail', ['id' => $product->id, 'slug' => $product->slug]) }}">
+                                href="{{ route('home.article.detail', ['id' => $article->id, 'slug' => $article->slug]) }}">
                                 <i class="fa fa-arrow-right"></i>
                                 <span>Lihat Detail</span>
                             </a>
@@ -44,7 +46,7 @@
             </div>
             <div class="row g-4 mt-5">
                 <div class="col-md-12 mx-auto text-center wow fadeInUp" data-wow-delay="0.3s">
-                    {{ $products->links() }}
+                    {{ $articles->links() }}
                 </div>
             </div>
         </div>

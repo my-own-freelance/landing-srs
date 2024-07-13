@@ -14,16 +14,17 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="{{ route('home') }}" class="nav-item nav-link {{ $routename == 'home' ? 'active' : '' }}">Home</a>
             <a href="about.html" class="nav-item nav-link {{ $routename == 'home.about' ? 'active' : '' }}">About</a>
-            <a href="{{ route('home.product') }}" class="nav-item nav-link {{ $routename == 'home.product' || $routename == 'home.product.detail' ? 'active' : '' }}">Produk</a>
+            <a href="{{ route('home.product') }}"
+                class="nav-item nav-link {{ $routename == 'home.product' || $routename == 'home.product.detail' ? 'active' : '' }}">Produk</a>
             <div class="nav-item dropdown">
-                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
+                <a href="#"
+                    class="nav-link dropdown-toggle {{ $routename == 'home.article' || $routename == 'home.article.detail' ? 'active' : '' }}"
+                    data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu fade-up m-0">
-                    <a href="price.html" class="dropdown-item">Pricing Plan</a>
-                    <a href="feature.html" class="dropdown-item">Features</a>
-                    <a href="quote.html" class="dropdown-item">Free Quote</a>
-                    <a href="team.html" class="dropdown-item">Our Team</a>
+                    <a href="{{ route('home.article') }}" class="dropdown-item">Artikel</a>
+                    <a href="feature.html" class="dropdown-item">Gallery</a>
+                    <a href="quote.html" class="dropdown-item">Team</a>
                     <a href="testimonial.html" class="dropdown-item">Testimonial</a>
-                    <a href="404.html" class="dropdown-item">404 Page</a>
                 </div>
             </div>
             <a href="contact.html" class="nav-item nav-link">Contact</a>

@@ -29,14 +29,22 @@ class ProductController extends Controller
                     ->orWhere('description', 'LIKE', '%' . $s . '%')
                     ->get();
             }
-        })->orderBy('created_at', 'desc')->paginate(12);
-        $reviews = Review::inRandomOrder()->limit(4)->get();
+        })
+            ->where('is_publish', 'Y')
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+        
+            $reviews = Review::inRandomOrder()->limit(4)->get();
         return view('pages.front.product', compact('title', 'products', 'reviews'));
     }
 
     public function homeProductDetail($id, $slug)
     {
-        $product = Product::where('id', $id)->where('slug', $slug)->first();
+        $product = Product::where('id', $id)
+            ->where('slug', $slug)
+            ->where('is_publish', 'Y')
+            ->first();
+
         if (!$product) {
             return abort(404);
         }

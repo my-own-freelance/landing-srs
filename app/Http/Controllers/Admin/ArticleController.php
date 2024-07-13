@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Article;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -15,6 +16,43 @@ class ArticleController extends Controller
     {
         $title = "Artikel";
         return view("pages.admin.article", compact("title"));
+    }
+
+    // FRONT PAGE
+    public function homeArticle(Request $request)
+    {
+        $title = 'Artikel - PT. SAMUDERA RIZKI SEJAHTERA';
+        $articles = Article::where(function ($query) use ($request) {
+            if (($s = $request->s)) {
+                $query->orWhere('title', 'LIKE', '%' . $s . '%')
+                    ->orWhere('excerpt', 'LIKE', '%' . $s . '%')
+                    ->orWhere('description', 'LIKE', '%' . $s . '%')
+                    ->get();
+            }
+        })
+            ->where('is_publish', 'Y')
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        $reviews = Review::inRandomOrder()->limit(4)->get();
+        return view('pages.front.article', compact('title', 'articles', 'reviews'));
+    }
+
+    public function homeArticleDetail($id, $slug)
+    {
+        $article = Article::where('id', $id)
+            ->where('slug', $slug)
+            ->where('is_publish', 'Y')
+            ->first();
+        
+            if (!$article) {
+            return abort(404);
+        }
+        $title = $article->title;
+        $data["views"] = $article->views + 1;
+        $article->update($data);
+
+        return view("pages.front.article-detail", compact("title", "article"));
     }
 
     // HANDLER API
