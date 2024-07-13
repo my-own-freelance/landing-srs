@@ -16,9 +16,9 @@
                                         Solution</h5> --}}
                                     <h1 class="display-3 text-white animated slideInDown mb-4">{{ $slider->title }}</h1>
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">{{ $slider->title }}</p>
-                                    <a href="/about"
+                                    <a href="{{ route('home.about') }}"
                                         class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Lebih Lanjut</a>
-                                    <a href="/contact"
+                                    <a href="{{ route('home.contact') }}"
                                         class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Contact</a>
                                 </div>
                             </div>
@@ -40,10 +40,10 @@
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum dolor
                                         at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum sea
                                         elitr.</p>
-                                    <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read
+                                    {{-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read
                                         More</a>
                                     <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free
-                                        Quote</a>
+                                        Quote</a> --}}
                                 </div>
                             </div>
                         </div>
@@ -63,10 +63,10 @@
                                     <p class="fs-5 fw-medium text-white mb-4 pb-2">Vero elitr justo clita lorem. Ipsum
                                         dolor at sed stet sit diam no. Kasd rebum ipsum et diam justo clita et kasd rebum
                                         sea elitr.</p>
-                                    <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read
+                                    {{-- <a href="" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read
                                         More</a>
                                     <a href="" class="btn btn-secondary py-md-3 px-md-5 animated slideInRight">Free
-                                        Quote</a>
+                                        Quote</a> --}}
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,6 @@
                                     kepuasan pelanggan sebagai prioritas.</p>
                             </div>
                         </div>
-                        <a href="/about" class="btn btn-primary py-3 px-5">Explore More</a>
                     </div>
                 </div>
             </div>

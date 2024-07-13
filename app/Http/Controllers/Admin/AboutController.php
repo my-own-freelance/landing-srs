@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\PublicInformation;
+use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -33,6 +35,17 @@ class AboutController extends Controller
     public function maps()
     {
         return view("pages.admin.abouts.maps");
+    }
+
+    // FRONT PAGE
+    public function homeAbout()
+    {
+        $title = 'About - PT. SAMUDERA RIZKI SEJAHTERA';
+        $about = About::first();
+        $information = PublicInformation::first();
+        $teams = Team::inRandomOrder()->limit(4)->get();
+
+        return view('pages.front.about', compact('title', 'about', 'information', 'teams'));
     }
 
     // HANDLER API

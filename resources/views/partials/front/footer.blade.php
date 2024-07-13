@@ -22,8 +22,8 @@
             </div>
             <div class="col-lg-5 col-md-6">
                 <h4 class="text-light mb-4">Quick Links</h4>
-                <a class="btn btn-link" href="">About Us</a>
-                <a class="btn btn-link" href="">Contact Us</a>
+                <a class="btn btn-link" href="{{ route('home.about') }}">About Us</a>
+                <a class="btn btn-link" href="{{ route('home.contact') }}">Contact Us</a>
                 <a class="btn btn-link" href="{{ route('home.product') }}">Produk</a>
                 <a class="btn btn-link" href="{{ route('home.article') }}">Artikel</a>
                 <a class="btn btn-link" href="{{ route('home.team') }}">Team</a>
