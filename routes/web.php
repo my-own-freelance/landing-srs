@@ -32,6 +32,7 @@ Route::get('/product/detail/{id}/{slug}', [ProductController::class, 'homeProduc
 Route::get('/article', [ArticleController::class, 'homeArticle'])->name('home.article');
 Route::get('/article/detail/{id}/{slug}', [ArticleController::class, 'homeArticleDetail'])->name('home.article.detail');
 Route::get('/gallery', [GalleryController::class, 'homeGallery'])->name('home.gallery');
+Route::get('/team', [TeamController::class, 'homeTeam'])->name('home.team');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 

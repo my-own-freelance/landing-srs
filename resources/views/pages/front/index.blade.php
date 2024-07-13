@@ -253,7 +253,8 @@
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                         <div class="team-item p-4">
                             <div class="overflow-hidden mb-4">
-                                <img class="img-fluid" src="{{ Storage::url($team->image) }}" alt="">
+                                <img class="img-fluid" src="{{ Storage::url($team->image) }}"
+                                    alt="{{ $team->name }}">
                             </div>
                             <h5 class="mb-0">{{ $team->name }}</h5>
                             <p>{{ $team->position }}</p>

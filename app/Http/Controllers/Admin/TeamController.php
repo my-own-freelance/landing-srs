@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Review;
 use App\Models\Team;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -14,6 +15,24 @@ class TeamController extends Controller
     {
         $title = "Team";
         return view("pages.admin.team", compact("title"));
+    }
+
+    // FRONT PAGE
+    public function homeTeam(Request $request)
+    {
+        $title = 'Teams - PT. SAMUDERA RIZKI SEJAHTERA';
+        $teams = Team::where(function ($query) use ($request) {
+            if (($s = $request->s)) {
+                $query->orWhere('name', 'LIKE', '%' . $s . '%')
+                    ->orWhere('position', 'LIKE', '%' . $s . '%')
+                    ->get();
+            }
+        })
+            ->orderBy('created_at', 'desc')
+            ->paginate(12);
+
+        $reviews = Review::inRandomOrder()->limit(4)->get();
+        return view('pages.front.team', compact('title', 'teams', 'reviews'));
     }
 
     // HANDLER API

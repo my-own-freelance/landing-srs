@@ -18,12 +18,17 @@
                 class="nav-item nav-link {{ $routename == 'home.product' || $routename == 'home.product.detail' ? 'active' : '' }}">Produk</a>
             <div class="nav-item dropdown">
                 <a href="#"
-                    class="nav-link dropdown-toggle {{ $routename == 'home.article' || $routename == 'home.article.detail' || $routename == 'home.gallery' ? 'active' : '' }}"
+                    class="nav-link dropdown-toggle {{ $routename == 'home.article' ||
+                    $routename == 'home.article.detail' ||
+                    $routename == 'home.gallery' ||
+                    $routename == 'home.team'
+                        ? 'active'
+                        : '' }}"
                     data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu fade-up m-0">
                     <a href="{{ route('home.article') }}" class="dropdown-item">Artikel</a>
                     <a href="{{ route('home.gallery') }}" class="dropdown-item">Gallery</a>
-                    <a href="quote.html" class="dropdown-item">Team</a>
+                    <a href="{{ route('home.team') }}" class="dropdown-item">Team</a>
                     <a href="testimonial.html" class="dropdown-item">Testimonial</a>
                 </div>
             </div>

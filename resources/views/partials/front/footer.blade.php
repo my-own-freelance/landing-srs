@@ -25,8 +25,8 @@
                 <a class="btn btn-link" href="">About Us</a>
                 <a class="btn btn-link" href="">Contact Us</a>
                 <a class="btn btn-link" href="{{ route('home.product') }}">Produk</a>
-                <a class="btn btn-link" href="">Terms & Condition</a>
-                <a class="btn btn-link" href="">Support</a>
+                <a class="btn btn-link" href="{{ route('home.article') }}">Artikel</a>
+                <a class="btn btn-link" href="{{ route('home.team') }}">Team</a>
             </div>
         </div>
     </div>
