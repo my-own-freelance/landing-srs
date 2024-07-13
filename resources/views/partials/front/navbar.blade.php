@@ -14,7 +14,7 @@
         <div class="navbar-nav ms-auto p-4 p-lg-0">
             <a href="{{ route('home') }}" class="nav-item nav-link {{ $routename == 'home' ? 'active' : '' }}">Home</a>
             <a href="about.html" class="nav-item nav-link {{ $routename == 'home.about' ? 'active' : '' }}">About</a>
-            <a href="{{ route('home.product') }}" class="nav-item nav-link {{ $routename == 'home.product' ? 'active' : '' }}">Produk</a>
+            <a href="{{ route('home.product') }}" class="nav-item nav-link {{ $routename == 'home.product' || $routename == 'home.product.detail' ? 'active' : '' }}">Produk</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu fade-up m-0">

@@ -28,6 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/product', [ProductController::class, 'homeProduct'])->name('home.product');
+Route::get('/product/detail/{id}/{slug}', [ProductController::class, 'homeProductDetail'])->name('home.product.detail');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 

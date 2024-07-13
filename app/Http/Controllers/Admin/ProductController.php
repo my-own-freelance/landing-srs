@@ -34,6 +34,17 @@ class ProductController extends Controller
         return view('pages.front.product', compact('title', 'products', 'reviews'));
     }
 
+    public function homeProductDetail($id, $slug)
+    {
+        $product = Product::where('id', $id)->where('slug', $slug)->first();
+        if (!$product) {
+            return abort(404);
+        }
+        $title = $product->title;
+
+        return view("pages.front.product-detail", compact("title", "product"));
+    }
+
     // HANDLER API
     public function dataTable(Request $request)
     {

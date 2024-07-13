@@ -182,7 +182,8 @@
                             </div>
                             <h4 class="mb-3">{{ Illuminate\Support\Str::limit(strip_tags($product->title), 100) }}</h4>
                             <p>{{ Illuminate\Support\Str::limit(strip_tags($product->excerpt), 200) }}</p>
-                            <a class="btn-slide mt-2" href="/product-detail">
+                            <a class="btn-slide mt-2"
+                                href="{{ route('home.product.detail', ['id' => $product->id, 'slug' => $product->slug]) }}">
                                 <i class="fa fa-arrow-right"></i>
                                 <span>Lihat Detail</span>
                             </a>
