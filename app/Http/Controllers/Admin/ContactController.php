@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Contact;
 use DateTime;
 use Illuminate\Http\Request;
@@ -14,6 +15,15 @@ class ContactController extends Controller
     {
         $title = "Pesan Masuk";
         return view("pages.admin.contact", compact("title"));
+    }
+
+    // FRONT PAGE
+    public function homeContact()
+    {
+        $title = "Contact - PT. SAMUDERA RIZKI SEJAHTERA";
+        $about = About::first();
+
+        return view('pages.front.contact', compact('title', 'about'));
     }
 
     // HANDLER API

@@ -33,8 +33,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 // AUTH
 Route::group(["middleware" => "guest"], function () {
     Route::post("/auth/login", [AuthController::class, "validateLogin"]);
-    Route::get("/contact/create", [ContactController::class, "create"]);
 });
+Route::post("/contact/send-message", [ContactController::class, "create"]);
 
 Route::prefix("admin")->namespace("admin")->middleware("check.auth")->group(function () {
     Route::post("/custom_template/create_update", [CustomTemplateController::class, "saveUpdateData"]);

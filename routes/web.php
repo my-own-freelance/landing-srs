@@ -33,7 +33,8 @@ Route::get('/article', [ArticleController::class, 'homeArticle'])->name('home.ar
 Route::get('/article/detail/{id}/{slug}', [ArticleController::class, 'homeArticleDetail'])->name('home.article.detail');
 Route::get('/gallery', [GalleryController::class, 'homeGallery'])->name('home.gallery');
 Route::get('/team', [TeamController::class, 'homeTeam'])->name('home.team');
-Route::get('/testiminial', [ReviewController::class, 'homeReview'])->name('home.testimonial');
+Route::get('/testimonial', [ReviewController::class, 'homeReview'])->name('home.testimonial');
+Route::get('/contact', [ContactController::class, 'homeContact'])->name('home.contact');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 

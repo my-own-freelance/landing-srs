@@ -33,10 +33,14 @@
                     <a href="{{ route('home.testimonial') }}" class="dropdown-item">Testimonial</a>
                 </div>
             </div>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="{{ route('home.contact') }}"
+                class="nav-item nav-link {{ $routename == 'home.contact' ? 'active' : '' }}">Contact</a>
         </div>
-        <h4 class="m-0 pe-lg-5 d-none d-lg-block"><i class="fa fa-headphones text-warning me-3"></i>+012 345 6789
-        </h4>
+        @if ($setting)
+            <h4 class="m-0 pe-lg-5 d-none d-lg-block"><i
+                    class="fa fa-headphones text-warning me-3"></i>{{ $setting->whatsapp }}
+            </h4>
+        @endif
     </div>
 </nav>
 <!-- Navbar End -->
