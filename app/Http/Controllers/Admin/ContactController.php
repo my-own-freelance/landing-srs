@@ -133,7 +133,7 @@ class ContactController extends Controller
 
         $recordsFiltered = $query->count();
 
-        $data = $query->orderBy('created_at', 'asc')
+        $data = $query->orderBy('created_at', 'desc')
             ->skip($request->query('start'))
             ->limit($request->query('length'))
             ->get();

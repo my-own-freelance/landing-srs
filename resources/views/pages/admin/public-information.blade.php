@@ -86,10 +86,10 @@
             formData.append("id", parseInt($("#id").val()));
             formData.append("title", $("#title").val());
             formData.append("description", $("#description").val());
-            formData.append("contact_us", parseInt($("#contact_us").val()));
+            formData.append("contact_us", $("#contact_us").val());
             formData.append("happy_client", parseInt($("#happy_client").val()));
             formData.append("complete_shipment", parseInt($("#complete_shipment").val()));
-            formData.append("customer_review", $("#customer_review").val());
+            formData.append("customer_review", parseInt($("#customer_review").val()));
 
             createAndUpdate(formData);
             return false;

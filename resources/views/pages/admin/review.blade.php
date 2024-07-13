@@ -2,6 +2,13 @@
 @section('title', $title)
 @push('styles')
     <link rel="stylesheet" href="{{ asset('/css/toggle-status.css') }}">
+    <style>
+        .wrap-text {
+            max-width: 400px;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -56,8 +63,8 @@
                         <input class="form-control" id="id" type="hidden" name="id" />
                         <div class="form-group">
                             <label for="name">Nama</label>
-                            <input class="form-control" id="name" type="text" name="name" placeholder="nama reviewer"
-                                required />
+                            <input class="form-control" id="name" type="text" name="name"
+                                placeholder="nama reviewer" required />
                         </div>
                         <div class="form-group">
                             <label for="review">Review</label>
@@ -112,6 +119,12 @@
                     data: 'name',
                 }, {
                     data: 'review',
+                    "render": function(data, type, row, meta) {
+                        if (type === 'display') {
+                            return `<div class="wrap-text">${data}</div>`;
+                        }
+                        return data;
+                    }
                 }, {
                     data: 'image',
                 }],

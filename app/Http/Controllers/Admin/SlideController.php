@@ -295,7 +295,7 @@ class SlideController extends Controller
                 </div>';
             $image = '<div class="thumbnail">
                         <div class="thumb">
-                            <img src="' . Storage::url($item->image) . '" alt="" width="300px" height="300px" 
+                            <img src="' . Storage::url($item->image) . '" alt="' . $item->title . '" width="400px" height="400px" 
                             class="img-fluid img-thumbnail" alt="' . $item->title . '">
                         </div>
                     </div>';

@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\SlideController;
 use App\Http\Controllers\Admin\TeamController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,9 +26,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 

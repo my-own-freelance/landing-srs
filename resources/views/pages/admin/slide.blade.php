@@ -2,6 +2,13 @@
 @section('title', $title)
 @push('styles')
     <link rel="stylesheet" href="{{ asset('/css/toggle-status.css') }}">
+    <style>
+        .wrap-text {
+            max-width: 200px;
+            word-wrap: break-word;
+            white-space: normal;
+        }
+    </style>
 @endpush
 
 @section('content')
@@ -125,6 +132,12 @@
                     data: 'action',
                 }, {
                     data: 'title',
+                    "render": function (data, type, row, meta) {
+                        if (type === 'display') {
+                            return `<div class="wrap-text">${data}</div>`;
+                        }
+                        return data;
+                    }
                 }, {
                     data: 'image',
                 }, {
@@ -132,7 +145,13 @@
                 }, {
                     data: 'is_publish'
                 }, {
-                    data: 'description'
+                    data: 'description',
+                    "render": function (data, type, row, meta) {
+                        if (type === 'display') {
+                            return `<div class="wrap-text">${data}</div>`;
+                        }
+                        return data;
+                    }
                 }],
                 pageLength: 10,
             });
