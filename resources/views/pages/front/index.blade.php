@@ -180,8 +180,8 @@
                             <div class="overflow-hidden mb-4">
                                 <img class="img-fluid" src="{{ Storage::url($product->image) }}" alt="">
                             </div>
-                            <h4 class="mb-3">{{ $product->title }}</h4>
-                            <p>{{ $product->excerpt }}</p>
+                            <h4 class="mb-3">{{ Illuminate\Support\Str::limit(strip_tags($product->title), 100) }}</h4>
+                            <p>{{ Illuminate\Support\Str::limit(strip_tags($product->excerpt), 200) }}</p>
                             <a class="btn-slide mt-2" href="/product-detail">
                                 <i class="fa fa-arrow-right"></i>
                                 <span>Lihat Detail</span>
@@ -271,7 +271,7 @@
         <div class="container py-5">
             <div class="text-center">
                 <h6 class="text-secondary text-uppercase">Testimonial</h6>
-                <h1 class="mb-0">Apa kata pelanggan kami!</h1>
+                <h1 class="mb-0">Apa mereka tentang kami!</h1>
             </div>
             <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
                 @forelse ($reviews as $review)

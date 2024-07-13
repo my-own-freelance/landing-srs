@@ -1,3 +1,6 @@
+@php
+    $routename = request()->route()->getName();
+@endphp
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-warning sticky-top p-0">
     <a href="index.html" class="navbar-brand bg-warning d-flex align-items-center px-4 px-lg-5">
@@ -9,9 +12,9 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="index.html" class="nav-item nav-link active">Home</a>
-            <a href="about.html" class="nav-item nav-link">About</a>
-            <a href="service.html" class="nav-item nav-link">Services</a>
+            <a href="{{ route('home') }}" class="nav-item nav-link {{ $routename == 'home' ? 'active' : '' }}">Home</a>
+            <a href="about.html" class="nav-item nav-link {{ $routename == 'home.about' ? 'active' : '' }}">About</a>
+            <a href="{{ route('home.product') }}" class="nav-item nav-link {{ $routename == 'home.product' ? 'active' : '' }}">Produk</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Pages</a>
                 <div class="dropdown-menu fade-up m-0">

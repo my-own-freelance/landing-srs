@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product;
+use App\Models\Review;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
@@ -15,6 +16,22 @@ class ProductController extends Controller
     {
         $title = "Produk";
         return view("pages.admin.product", compact("title"));
+    }
+
+    // FRONT PAGE
+    public function homeProduct(Request $request)
+    {
+        $title = 'Product - PT. SAMUDERA RIZKI SEJAHTERA';
+        $products = Product::where(function ($query) use ($request) {
+            if (($s = $request->s)) {
+                $query->orWhere('title', 'LIKE', '%' . $s . '%')
+                    ->orWhere('excerpt', 'LIKE', '%' . $s . '%')
+                    ->orWhere('description', 'LIKE', '%' . $s . '%')
+                    ->get();
+            }
+        })->orderBy('created_at', 'desc')->paginate(12);
+        $reviews = Review::inRandomOrder()->limit(4)->get();
+        return view('pages.front.product', compact('title', 'products', 'reviews'));
     }
 
     // HANDLER API
