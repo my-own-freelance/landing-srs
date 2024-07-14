@@ -61,7 +61,7 @@
                 @if ($about)
                     <div class="col-md-6 pe-lg-0 wow fadeInRight" data-wow-delay="0.1s">
                         <div class="position-relative h-100">
-                            <iframe class="position-absolute w-100 h-100" style="object-fit: cover;"
+                            <iframe class="w-100 h-100" style="object-fit: cover;"
                                 src="{{ $about->location }}" frameborder="0" allowfullscreen="" aria-hidden="false"
                                 tabindex="0"></iframe>
                         </div>

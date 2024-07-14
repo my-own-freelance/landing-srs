@@ -3,7 +3,7 @@
 @endphp
 <!-- Navbar Start -->
 <nav class="navbar navbar-expand-lg bg-white navbar-light shadow border-top border-5 border-warning sticky-top p-0">
-    <a href="index.html" class="navbar-brand bg-warning d-flex align-items-center px-4 px-lg-5">
+    <a href="{{ route('home') }}" class="navbar-brand bg-warning d-flex align-items-center px-4 px-lg-5">
         <h3 class="mb-2 text-white">PT. SRS JATENG</h3>
         {{-- <img src="{{ asset('icon/icon.png') }}" width="70" alt=""> --}}
     </a>
@@ -43,7 +43,7 @@
             </h4>
         @endif
         <div id="google_translate_element">
-            
+
         </div>
     </div>
 </nav>
